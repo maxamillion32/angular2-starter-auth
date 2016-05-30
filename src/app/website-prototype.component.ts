@@ -21,7 +21,7 @@ import { ProfileComponent } from './+profile';
     {path: '/profile', component: ProfileComponent}
 ])
 export class WebsitePrototypeAppComponent {
-    title = 'website-prototype works!';
+
     constructor(private authService: AuthService) {
 
     }
