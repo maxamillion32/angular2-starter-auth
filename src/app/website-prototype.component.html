@@ -17,7 +17,8 @@
                 <!--</ul>-->
                 <ul class="nav navbar-nav navbar-right">
                     <li><a [routerLink]="['Dresses']">Dresses</a></li>
-                    <li><a [routerLink]="['Signup']">Signup</a></li>
+                    <li *ngIf="authService.authenticated()"><a [routerLink]="['Signup']">Signup</a></li>
+                    <li *ngIf="!authService.authenticated()"><a [routerLink]="['Signup']">Your Name</a></li>
                 </ul>
             </div>
         </div>
