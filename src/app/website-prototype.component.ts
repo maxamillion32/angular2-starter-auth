@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { SignupComponent } from './+signup';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { HomeComponent } from './+home';
+import { DressesComponent } from './+dresses';
 
 @Component({
     moduleId: module.id,
@@ -11,7 +13,9 @@ import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
     providers: [ROUTER_PROVIDERS]
 })
 @Routes([
-    {path: '/signup', component: SignupComponent}
+    {path: '/signup', component: SignupComponent},
+    {path: '/home', component: HomeComponent},
+    {path: '/dresses', component: DressesComponent}
 ])
 export class WebsitePrototypeAppComponent {
     title = 'website-prototype works!';
