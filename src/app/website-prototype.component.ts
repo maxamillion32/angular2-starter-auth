@@ -21,8 +21,23 @@ import { ProfileComponent } from './+profile';
     {path: '/profile', component: ProfileComponent}
 ])
 export class WebsitePrototypeAppComponent {
+    user: Object;
 
     constructor(private authService: AuthService) {
+        if ( this.authService.authenticated() ) {
+            this.user = this.authService.user;
+        }
+    }
 
+    login() {
+        this.authService.login();
+    }
+
+    signup() {
+        this.authService.signup();
+    }
+
+    logout() {
+        this.authService.logout();
     }
 }

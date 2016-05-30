@@ -1,3 +1,19 @@
-<p>
-  profile works!
-</p>
+<div *ngIf="!authService.authenticated()">
+    <!--<div class="text-center" style="padding-top: 15%;">-->
+    <div class="text-center">
+        <i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="authService.authenticated()">
+    <p>
+      profile works!
+    </p>
+
+    <img src="{{ user.picture }}" />
+    {{ user.email }}<br/>
+    {{ user.email_verified }}<br/>
+    {{ user.name }}<br/>
+    {{ user.nickname }}<br/>
+</div>

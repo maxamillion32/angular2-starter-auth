@@ -18,16 +18,17 @@ export class AuthService {
         console.log(this.user);
     }
 
-    login() {
-        console.log('inside auth.service > login()');
+    signup() {
+        console.log('inside auth.service > signup()');
         console.log('authenticated: ' + tokenNotExpired());
         // Lock widget configuration
         var config = {
             // icon: 'https://auth0.com/boot/badge.png',
             icon: 'http://ih2.redbubble.net/image.14727980.2772/sticker,375x360.u3.png',
-            signupLink: 'https://yoursite.com/signup',
-            closable: false,
-            rememberLastLogin: false,
+            // signupLink: 'https://yoursite.com/signup',
+            // closable: false,
+            // rememberLastLogin: false,
+            socialBigButtons: true,
             dict: {
                 signin: {
                     title: "Signum"
@@ -37,6 +38,55 @@ export class AuthService {
             // theme: false
             // container: 'root'
         };
+
+        // TODO: Docs https://auth0.com/docs/libraries/lock
+        // Show the Auth0 Lock widget
+        this.lock.showSignup(config, (err, profile, token) => {
+            console.log('inside the login callback...');
+            console.log(err);
+            console.log(profile);
+            console.log(token);
+            if ( err ) {
+                // Error callback
+                alert(err);
+                return;
+            } else {
+                // Success callback
+                // authentication is successful, save the items in local storage
+                localStorage.setItem('profile', JSON.stringify(profile));
+                localStorage.setItem('id_token', token);
+                this.zoneImpl.run(() => this.user = profile);
+                console.log('navigating to profile to complete signup process...');
+                this.router.navigate(['/profile']);
+            }
+        });
+    }
+
+    login() {
+        console.log('inside auth.service > login()');
+        console.log('authenticated: ' + tokenNotExpired());
+        // Lock widget configuration
+        var config = {
+            // icon: 'https://auth0.com/boot/badge.png',
+            icon: 'http://ih2.redbubble.net/image.14727980.2772/sticker,375x360.u3.png',
+            // signupLink: 'https://yoursite.com/signup',
+            // closable: false,
+            rememberLastLogin: false,
+            disableSignupAction: true,
+            dict: {
+                signin: {
+                    title: "Signum"
+                }
+            }
+            // callbackURL: 'http://localhost:4200/home'
+            // theme: false
+            // container: 'root'
+        };
+
+        this.lock.on('hidden', () => {
+            console.log("lock hidden!");
+            this.router.navigate(['/']);
+        });
 
         // TODO: Docs https://auth0.com/docs/libraries/lock
         // Show the Auth0 Lock widget
@@ -56,7 +106,7 @@ export class AuthService {
                 localStorage.setItem('id_token', token);
                 this.zoneImpl.run(() => this.user = profile);
                 console.log('navigating home...');
-                this.router.navigate(['Home']);
+                // this.router.navigate(['Home']);
             }
         });
     }
