@@ -65,7 +65,7 @@ export class AuthService {
         localStorage.removeItem('profile');
         localStorage.removeItem('id_token');
         this.zoneImpl.run(() => this.user = null);
-        this.router.navigate(['Login']);
+        // this.router.navigate(['Login']);
     }
 
     authenticated() {

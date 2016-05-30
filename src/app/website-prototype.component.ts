@@ -3,7 +3,7 @@ import { SignupComponent } from './+signup';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 import { HomeComponent } from './+home';
 import { DressesComponent } from './+dresses';
-// import { AuthService } from './shared/auth/auth.service';
+import { AuthService } from './shared/auth/auth.service';
 
 @Component({
     moduleId: module.id,
@@ -20,4 +20,7 @@ import { DressesComponent } from './+dresses';
 ])
 export class WebsitePrototypeAppComponent {
     title = 'website-prototype works!';
+    constructor(private authService: AuthService) {
+
+    }
 }
