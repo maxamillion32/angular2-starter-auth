@@ -4,6 +4,7 @@ import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 import { HomeComponent } from './+home';
 import { DressesComponent } from './+dresses';
 import { AuthService } from './shared/auth/auth.service';
+import { ProfileComponent } from './+profile';
 
 @Component({
     moduleId: module.id,
@@ -11,12 +12,13 @@ import { AuthService } from './shared/auth/auth.service';
     templateUrl: 'website-prototype.component.html',
     styleUrls: ['website-prototype.component.css'],
     directives: [ROUTER_DIRECTIVES],
-    providers: [ROUTER_PROVIDERS]
+    providers: [ AuthService, ROUTER_PROVIDERS]
 })
 @Routes([
+    {path: '/', component: HomeComponent},
     {path: '/signup', component: SignupComponent},
-    {path: '/home', component: HomeComponent},
-    {path: '/dresses', component: DressesComponent}
+    {path: '/dresses', component: DressesComponent},
+    {path: '/profile', component: ProfileComponent}
 ])
 export class WebsitePrototypeAppComponent {
     title = 'website-prototype works!';
