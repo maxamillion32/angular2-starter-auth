@@ -1,5 +1,37 @@
-<h1>
-  {{title}}
-</h1>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" [routerLink]="['Home']">
+                    <i class="fa fa-cube"></i>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <!--<ul class="nav navbar-nav">-->
+                    <!--<li><a [routerLink]="['Dresses']">Dresses</a></li>-->
+                <!--</ul>-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a [routerLink]="['Dresses']">Dresses</a></li>
+                    <li><a [routerLink]="['Signup']">Signup</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
-<router-outlet></router-outlet>
+<div class="container-fluid" style="padding-top: 70px;">
+    <h1>
+        {{title}}
+    </h1>
+
+    <router-outlet></router-outlet>
+</div>
+
+<footer class="container-fluid">
+    <p>This is the footer</p>
+</footer>

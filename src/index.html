@@ -10,9 +10,22 @@
         {{/unless}}
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+        <!-- Third party CSS from CDN -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <link href="public/css/colors.css" rel="stylesheet">
+        <link href="public/css/layout.css" rel="stylesheet">
+
     </head>
     <body>
-        <website-prototype-app>Loading...</website-prototype-app>
+        <website-prototype-app>
+            <div class="text-center" style="padding-top: 15%;">
+                <i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+                <span class="sr-only">Loading...</span>
+            </div>
+        </website-prototype-app>
 
         {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}}
         <script>
