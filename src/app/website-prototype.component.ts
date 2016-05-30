@@ -16,7 +16,6 @@ import { ProfileComponent } from './+profile';
 })
 @Routes([
     {path: '/', component: HomeComponent},
-    {path: '/signup', component: SignupComponent},
     {path: '/dresses', component: DressesComponent},
     {path: '/profile', component: ProfileComponent}
 ])
