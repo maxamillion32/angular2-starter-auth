@@ -19,6 +19,9 @@ import { ProfileComponent } from './+profile';
     {path: '/profile', component: ProfileComponent}
 ])
 export class WebsitePrototypeAppComponent {
+    // http://stackoverflow.com/questions/37145855/angular2-menu-multilevel-dropdown-doesnt-work
+    // https://plnkr.co/edit/zG0Q5Q3dsmJqsplZKG7e?p=preview
+    // Create menu item component
 
     constructor(private authService: AuthService) { }
 

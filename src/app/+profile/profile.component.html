@@ -7,13 +7,19 @@
 </div>
 
 <div *ngIf="authService.authenticated()">
+    <div *ngIf="!authService.user.email_verified" class="alert alert-warning" role="alert">Please verify your email address</div>
     <p>
       profile works!
     </p>
 
+    <div>
+        <p>Verifications</p>
+        Email: {{ authService.user.email_verified }}<br/>
+
+    </div>
+
     <img src="{{ authService.user.picture }}" />
     {{ authService.user.email }}<br/>
-    {{ authService.user.email_verified }}<br/>
     {{ authService.user.name }}<br/>
     {{ authService.user.nickname }}<br/>
 </div>
