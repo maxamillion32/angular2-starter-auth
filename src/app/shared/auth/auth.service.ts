@@ -19,49 +19,6 @@ export class AuthService {
         }
     }
 
-    signup() {
-        console.log('inside auth.service > signup()');
-        console.log('authenticated: ' + tokenNotExpired());
-        // Lock widget configuration
-        var config = {
-            // icon: 'https://auth0.com/boot/badge.png',
-            icon: 'http://ih2.redbubble.net/image.14727980.2772/sticker,375x360.u3.png',
-            // signupLink: 'https://yoursite.com/signup',
-            // closable: false,
-            // rememberLastLogin: false,
-            socialBigButtons: true,
-            dict: {
-                signin: {
-                    title: "Signum"
-                }
-            }
-            // callbackURL: 'http://localhost:4200/home'
-            // theme: false
-            // container: 'root'
-        };
-
-        // TODO: Docs https://auth0.com/docs/libraries/lock
-        // Show the Auth0 Lock widget
-        this.lock.showSignup(config, (err, profile, token) => {
-            console.log('inside the login callback...');
-            console.log(err);
-            console.log(profile);
-            console.log(token);
-            if ( err ) {
-                // Error callback
-                alert(err);
-                return;
-            } else {
-                // Success callback
-                // authentication is successful, save the items in local storage
-                localStorage.setItem('profile', JSON.stringify(profile));
-                localStorage.setItem('id_token', token);
-                this.zoneImpl.run(() => this.user = profile);
-                this.router.navigate(['/profile']);
-            }
-        });
-    }
-
     login() {
         console.log('inside auth.service > login()');
         console.log('authenticated: ' + tokenNotExpired());
@@ -70,7 +27,7 @@ export class AuthService {
             // icon: 'https://auth0.com/boot/badge.png',
             icon: 'http://ih2.redbubble.net/image.14727980.2772/sticker,375x360.u3.png',
             // signupLink: 'https://yoursite.com/signup',
-            // closable: false,
+            closable: false,
             rememberLastLogin: false,
             disableSignupAction: true,
             dict: {
@@ -113,7 +70,7 @@ export class AuthService {
         localStorage.removeItem('profile');
         localStorage.removeItem('id_token');
         this.zoneImpl.run(() => this.user = null);
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
     }
 
     authenticated() {

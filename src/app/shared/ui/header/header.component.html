@@ -16,12 +16,8 @@
                 <!--<li><a [routerLink]="['Dresses']">Dresses</a></li>-->
                 <!--</ul>-->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a [routerLink]="['/dashboard']">Dashboard</a></li>
-                    <li><a [routerLink]="['/dresses']">How it Works</a></li>
-                    <li><a [routerLink]="['/dresses']">Rent</a></li>
-                    <li *ngIf="!authService.authenticated()"><a href="javascript:void(0)" (click)="signup()">Sign Up</a></li>
-                    <li *ngIf="!authService.authenticated()"><a href="javascript:void(0)" (click)="login()">Log In</a></li>
-                    <li *ngIf="authService.authenticated()" class="dropdown">
+                    <li><a [routerLink]="['/']">Home</a></li>
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ authService.user.nickname }} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a [routerLink]="['/profile']">Profile</a></li>
