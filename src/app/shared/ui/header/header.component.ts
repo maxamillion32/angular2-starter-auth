@@ -6,7 +6,7 @@ import { AuthService } from './../../auth/auth.service';
     moduleId: module.id,
     selector: 'app-header',
     templateUrl: 'header.component.html',
-    styleUrls: ['header.component.css'],
+    styleUrls: ['header.component.css'], // TODO see if I can use scss instead of css
     directives: [ROUTER_DIRECTIVES],
     providers: [ AuthService ]
 })

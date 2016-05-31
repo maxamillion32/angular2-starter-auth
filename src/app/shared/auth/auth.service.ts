@@ -57,7 +57,6 @@ export class AuthService {
                 localStorage.setItem('profile', JSON.stringify(profile));
                 localStorage.setItem('id_token', token);
                 this.zoneImpl.run(() => this.user = profile);
-                console.log('navigating to profile to complete signup process...');
                 this.router.navigate(['/profile']);
             }
         });
@@ -106,8 +105,6 @@ export class AuthService {
                 localStorage.setItem('profile', JSON.stringify(profile));
                 localStorage.setItem('id_token', token);
                 this.zoneImpl.run(() => this.user = profile);
-                console.log('navigating home...');
-                // this.router.navigate(['Home']);
             }
         });
     }
@@ -116,7 +113,7 @@ export class AuthService {
         localStorage.removeItem('profile');
         localStorage.removeItem('id_token');
         this.zoneImpl.run(() => this.user = null);
-        // this.router.navigate(['Login']);
+        this.router.navigate(['/']);
     }
 
     authenticated() {
