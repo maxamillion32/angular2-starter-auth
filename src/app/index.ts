@@ -1,3 +1,3 @@
 export * from './environment';
-export * from './website-prototype.component';
+export * from './app.component';
 export * from "./shared/auth/auth.service";

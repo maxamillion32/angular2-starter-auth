@@ -3,14 +3,14 @@ import { enableProdMode, provide } from '@angular/core';
 import { ROUTER_PROVIDERS } from '@angular/router';
 import { Http, HTTP_PROVIDERS } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
-import { WebsitePrototypeAppComponent, environment } from './app/';
+import { AppComponent, environment } from './app/';
 import { AuthService } from './app/index';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(WebsitePrototypeAppComponent, [
+bootstrap(AppComponent, [
     HTTP_PROVIDERS,
     ROUTER_PROVIDERS,
     provide(AuthHttp, {

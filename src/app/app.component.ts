@@ -7,17 +7,17 @@ import { FooterComponent } from './shared/ui/footer';
 
 @Component({
     moduleId: module.id,
-    selector: 'website-prototype-app',
-    templateUrl: 'website-prototype.component.html',
-    styleUrls: ['website-prototype.component.css'],
+    selector: 'app',
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.css'],
     directives: [ROUTER_DIRECTIVES, HeaderComponent, FooterComponent ],
     providers: [ROUTER_PROVIDERS]
 })
 @Routes([
     {path: '/', component: HomeComponent},
-    {path: '/profile', component: ProfileComponent}
+    {path: '/profile', component: ProfileComponent},
 ])
-export class WebsitePrototypeAppComponent {
+export class AppComponent {
     // http://stackoverflow.com/questions/37145855/angular2-menu-multilevel-dropdown-doesnt-work
     // https://plnkr.co/edit/zG0Q5Q3dsmJqsplZKG7e?p=preview
     // Create menu item component

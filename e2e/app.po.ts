@@ -1,9 +1,9 @@
-export class WebsitePrototypePage {
+export class AppPage {
   navigateTo() {
     return browser.get('/');
   }
 
   getParagraphText() {
-    return element(by.css('website-prototype-app h1')).getText();
+    return element(by.css('app h1')).getText();
   }
 }
