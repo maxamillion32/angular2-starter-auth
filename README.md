@@ -1,4 +1,4 @@
-# angular2-auth-starter
+# angular2-starter-auth
 A starter authentication angular app originally built with angular-cli
 
 ``
