@@ -7,15 +7,16 @@ declare var Auth0Lock: any;
 
 @Injectable()
 export class AuthService {
-    lock = new Auth0Lock('9yhAWwVUCQhhTaFw63iV4F2qTAJCY0bH', '8bitghost.auth0.com');
+    private lock = new Auth0Lock('9yhAWwVUCQhhTaFw63iV4F2qTAJCY0bH', '8bitghost.auth0.com');
     // lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_NAMESPACE');
+    private zoneImpl: NgZone;
     user: Object;
-    zoneImpl: NgZone;
 
     constructor(private router: Router, zone: NgZone) {
         this.zoneImpl = zone;
-        this.user = JSON.parse(localStorage.getItem('profile'));
-        console.log(this.user);
+        if ( tokenNotExpired() ) {
+            this.user = JSON.parse(localStorage.getItem('profile'));
+        }
     }
 
     signup() {

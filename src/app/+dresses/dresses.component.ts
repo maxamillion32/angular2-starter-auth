@@ -8,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DressesComponent implements OnInit {
 
-  constructor() {}
+  constructor() {
+      console.log('Dress Component constructor()');
+  }
 
   ngOnInit() {
+      console.log('Dress Component ngOnInit()');
   }
 
 }

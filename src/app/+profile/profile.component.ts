@@ -11,16 +11,12 @@ export class ProfileComponent implements OnInit {
     user: Object;
 
     constructor(private authService: AuthService) {
-        if ( !this.authService.authenticated() ) {
-            this.authService.login();
-        } else {
-            this.user = this.authService.user;
-        }
+        console.log('ProfileComponent constructor()');
     }
 
     ngOnInit() {
         // TODO: Once logged into Auth0, get the user's details from the user service
-        console.log('inside the profile component');
+        console.log('inside the profile component, ngOnit');
     }
 
 }

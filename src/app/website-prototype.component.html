@@ -17,10 +17,10 @@
                 <!--</ul>-->
                 <ul class="nav navbar-nav navbar-right">
                     <li><a [routerLink]="['/dresses']">Dresses</a></li>
-                    <li *ngIf="!authService.authenticated()"><a (click)="signup()">Sign Up</a></li>
+                    <li *ngIf="!authService.authenticated()"><a href="#" (click)="signup()">Sign Up</a></li>
                     <li *ngIf="!authService.authenticated()"><a (click)="login()">Log In</a></li>
-                    <li *ngIf="authService.authenticated()"><a [routerLink]="['/profile']">{{ user.nickname }}</a></li>
-                    <li *ngIf="authService.authenticated()"><a (click)="logout()">Logout</a></li>
+                    <li *ngIf="authService.authenticated()"><a [routerLink]="['/profile']">{{ authService.user.nickname }}</a></li>
+                    <li *ngIf="authService.authenticated()"><a href="#" (click)="logout()">Logout</a></li>
                 </ul>
             </div>
         </div>

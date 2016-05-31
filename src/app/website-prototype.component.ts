@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SignupComponent } from './+signup';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 import { HomeComponent } from './+home';
 import { DressesComponent } from './+dresses';
@@ -20,13 +19,8 @@ import { ProfileComponent } from './+profile';
     {path: '/profile', component: ProfileComponent}
 ])
 export class WebsitePrototypeAppComponent {
-    user: Object;
 
-    constructor(private authService: AuthService) {
-        if ( this.authService.authenticated() ) {
-            this.user = this.authService.user;
-        }
-    }
+    constructor(private authService: AuthService) { }
 
     login() {
         this.authService.login();
