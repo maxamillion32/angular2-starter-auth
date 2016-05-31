@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Routes , ROUTER_DIRECTIVES } from '@angular/router';
+import { Routes , ROUTER_DIRECTIVES , ROUTER_PROVIDERS} from '@angular/router';
 import { HomeComponent } from './+home';
 import { ProfileComponent } from './+profile';
 import { HeaderComponent } from './shared/ui/header';
@@ -10,7 +10,8 @@ import { FooterComponent } from './shared/ui/footer';
     selector: 'website-prototype-app',
     templateUrl: 'website-prototype.component.html',
     styleUrls: ['website-prototype.component.css'],
-    directives: [ROUTER_DIRECTIVES, HeaderComponent, FooterComponent ]
+    directives: [ROUTER_DIRECTIVES, HeaderComponent, FooterComponent ],
+    providers: [ROUTER_PROVIDERS]
 })
 @Routes([
     {path: '/', component: HomeComponent},
