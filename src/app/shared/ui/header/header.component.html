@@ -1,0 +1,70 @@
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" [routerLink]="['/']">
+                    <i class="fa fa-cube"></i>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <!--<ul class="nav navbar-nav">-->
+                <!--<li><a [routerLink]="['Dresses']">Dresses</a></li>-->
+                <!--</ul>-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a [routerLink]="['/dashboard']">Dashboard</a></li>
+                    <li><a [routerLink]="['/dresses']">How it Works</a></li>
+                    <li><a [routerLink]="['/dresses']">Rent</a></li>
+                    <li *ngIf="!authService.authenticated()"><a href="#" (click)="signup()">Sign Up</a></li>
+                    <li *ngIf="!authService.authenticated()"><a (click)="login()">Log In</a></li>
+                    <!--<li *ngIf="authService.authenticated()"><a [routerLink]="['/profile']">{{ authService.user.nickname }}</a></li>-->
+                    <!--<li *ngIf="authService.authenticated()"><a href="#" (click)="logout()">Logout</a></li>-->
+                    <li *ngIf="authService.authenticated()" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ authService.user.nickname }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a [routerLink]="['/profile']">Profile</a></li>
+                            <li><a href="#" (click)="logout()">Logout</a></li>
+                            <!--<li><a href="#">Something else here</a></li>-->
+                            <!--<li role="separator" class="divider"></li>-->
+                            <!--<li class="dropdown-header">Nav header</li>-->
+                            <!--<li><a href="#">Separated link</a></li>-->
+                            <!--<li><a href="#">One more separated link</a></li>-->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+
+<!--<div class="page-top clearfix" baScrollPosition maxHeight="50" (scrollChange)="scrolledChanged($event)"-->
+     <!--[ngClass]="{scrolled: isScrolled}">-->
+    <!--<a href="#/pages/dashboard" class="al-logo clearfix"><span>ng2-</span>admin</a>-->
+    <!--<a (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>-->
+
+    <!--<div class="search">-->
+        <!--<i class="ion-ios-search-strong" ng-click="startSearch()"></i>-->
+        <!--<input id="searchInput" type="text" placeholder="Search for...">-->
+    <!--</div>-->
+
+    <!--<div class="user-profile clearfix">-->
+        <!--<div class="dropdown al-user-profile">-->
+            <!--<a class="profile-toggle-link dropdown-toggle" id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">-->
+                <!--&lt;!&ndash;<img src="{{ ( 'Nasta' | baProfilePicture ) }}">&ndash;&gt;-->
+            <!--</a>-->
+            <!--<div class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd">-->
+                <!--<li class="dropdown-item"><i class="dropdown-arr"></i></li>-->
+                <!--<li class="dropdown-item"><a href="#/profile"><i class="fa fa-user"></i>Profile</a></li>-->
+                <!--<li class="dropdown-item"><a href><i class="fa fa-cog"></i>Settings</a></li>-->
+                <!--<li class="dropdown-item"><a href class="signout"><i class="fa fa-power-off"></i>Sign out</a></li>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<ba-msg-center></ba-msg-center>-->
+    <!--</div>-->
+<!--</div>-->
