@@ -34,7 +34,6 @@ const barrels: string[] = [
   'app',
   'app/shared',
   'app/+home',
-  'app/+dresses',
   'app/+profile',
   'app/+dashboard',
   'app/shared/ui/header/',
