@@ -1,16 +1,5 @@
-<div *ngIf="!authService.authenticated()">
-    <!--<div class="text-center" style="padding-top: 15%;">-->
-    <div class="text-center">
-        <i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
-        <span class="sr-only">Loading...</span>
-    </div>
-</div>
-
-<div *ngIf="authService.authenticated()">
+<div>
     <div *ngIf="!authService.user.email_verified" class="alert alert-warning" role="alert">Please verify your email address</div>
-    <p>
-      profile works!
-    </p>
 
     <div>
         <p>Verifications</p>
