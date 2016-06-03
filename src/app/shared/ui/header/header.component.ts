@@ -8,15 +8,13 @@ import { AuthenticatedRouterOutlet } from './../../../authenticated-router-outle
     moduleId: module.id,
     selector: 'app-header',
     templateUrl: 'header.component.html',
-    styleUrls: ['header.component.css'], // TODO see if I can use scss instead of css
+    styleUrls: ['header.component.css'],
     directives: [AuthenticatedRouterOutlet, ROUTER_DIRECTIVES],
     providers: [ AuthService ]
 })
 export class HeaderComponent implements OnInit {
 
-    constructor(private authService: AuthService) {
-        console.log('inside header component..');
-    }
+    constructor(private authService: AuthService) {}
 
     ngOnInit() {
     }

@@ -15,16 +15,12 @@ export class AuthService {
 
     constructor(private router: Router, zone: NgZone) {
         this.zoneImpl = zone;
-        console.log('User authenticated: ' + this.authenticated());
-        console.log('inside authservice constructor, Token not expired: ' + tokenNotExpired());
         if ( tokenNotExpired() ) {
             this.user = JSON.parse(localStorage.getItem('profile'));
         }
     }
 
     login() {
-        console.log('inside auth.service > login()');
-        console.log('authenticated: ' + tokenNotExpired());
         // Lock widget configuration
         var config = {
             // icon: 'https://auth0.com/boot/badge.png',
@@ -38,7 +34,6 @@ export class AuthService {
                     title: "Signum"
                 }
             }
-            // callbackURL: 'http://localhost:4200/home'
             // theme: false
             // container: 'root'
         };
@@ -46,9 +41,6 @@ export class AuthService {
         // TODO: Docs https://auth0.com/docs/libraries/lock
         // Show the Auth0 Lock widget
         this.lock.show(config, (err, profile, token) => {
-            console.log('inside login callback..');
-            console.log(profile);
-            console.log(token);
             if ( err ) {
                 // Error callback
                 // alert(err);
@@ -59,8 +51,6 @@ export class AuthService {
                 localStorage.setItem('profile', JSON.stringify(profile));
                 localStorage.setItem('id_token', token);
                 this.zoneImpl.run(() => this.user = profile);
-                console.log('this.user =');
-                console.log(this.user);
                 this.router.navigate(['Home']);
             }
         });
@@ -69,7 +59,6 @@ export class AuthService {
     logout() {
         localStorage.removeItem('profile');
         localStorage.removeItem('id_token');
-        localStorage.removeItem('token');
         this.zoneImpl.run(() => this.user = null);
         this.router.navigate(['Login']);
     }

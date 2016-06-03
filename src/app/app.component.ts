@@ -29,17 +29,6 @@ import { AuthenticatedRouterOutlet } from './authenticated-router-outlet.directi
     {path: '/profile', name: 'Profile', component: ProfileComponent}
 ])
 export class AppComponent {
-    // http://stackoverflow.com/questions/37145855/angular2-menu-multilevel-dropdown-doesnt-work
-    // https://plnkr.co/edit/zG0Q5Q3dsmJqsplZKG7e?p=preview
-    // Create menu item component
-
-    constructor(private router: Router, private authService: AuthService) {
-        // if ( !this.authService.authenticated() ) {
-            // The user is not logged in, navigate to the login page
-            // TODO: Instead of router navigate figure out a way to send the user to a URL, this is based off the existing URL
-            // this.router.navigate(['Login']);
-            // this.router.navigate(['/login']);
-        // }
-    }
+    constructor(private router: Router, private authService: AuthService) { }
 
 }
