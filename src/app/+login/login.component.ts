@@ -11,15 +11,7 @@ import { AuthService } from './../shared/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-    constructor(private router: Router, private authService: AuthService) {
-        // if ( this.authService.authenticated() ) {
-        //     // The user is already logged in, send them to the home page
-        //     this.router.navigate(['/']);
-        // } else {
-        //     this.authService.login();
-        //     // this.router.navigate(['/login']);
-        // }
-    }
+    constructor(private router: Router, private authService: AuthService) { }
 
     ngOnInit() {
         if ( this.authService.authenticated() ) {
@@ -27,7 +19,6 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['Home']);
         } else {
             this.authService.login();
-            // this.router.navigate(['/login']);
         }
     }
 

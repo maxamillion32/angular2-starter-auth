@@ -61,6 +61,7 @@ export class AuthService {
                 this.zoneImpl.run(() => this.user = profile);
                 console.log('this.user =');
                 console.log(this.user);
+                this.router.navigate(['Home']);
             }
         });
     }
