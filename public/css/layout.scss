@@ -2,18 +2,19 @@
 
 
 @font-face {
-    font-family: 'Lato';
-    src: url('/fonts/Lato-Reg.ttf');
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Reg.ttf');
 }
 
 @font-face {
-    font-family: 'Lato-Bold';
-    src: url('/fonts/Lato-Bol.ttf');
+  font-family: 'Lato-Bold';
+  src: url('/fonts/Lato-Bol.ttf');
 }
 
 body {
-    margin: 0 auto;
-    font-family: 'Lato' !important;
+  margin: 0 auto;
+  font-family: 'Lato' !important;
+  padding-top: 90px;
     //font-size: 12px;
     //color: $lightGray;
     //background: $darkBackground;
