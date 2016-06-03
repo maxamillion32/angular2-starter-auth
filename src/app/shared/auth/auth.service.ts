@@ -7,8 +7,7 @@ declare var Auth0Lock: any;
 
 @Injectable()
 export class AuthService {
-    private lock = new Auth0Lock('9yhAWwVUCQhhTaFw63iV4F2qTAJCY0bH', '8bitghost.auth0.com');
-    // lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_NAMESPACE');
+    private lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_NAMESPACE');
     private zoneImpl: NgZone;
     user: Object;
 
@@ -60,7 +59,7 @@ export class AuthService {
                 // Success callback
                 // authentication is successful, save the items in local storage
                 localStorage.setItem('profile', JSON.stringify(profile));
-                localStorage.setItem('id_token', token);
+                localStorage.setItem('token', token);
                 this.zoneImpl.run(() => this.user = profile);
             }
         });
@@ -68,7 +67,7 @@ export class AuthService {
 
     logout() {
         localStorage.removeItem('profile');
-        localStorage.removeItem('id_token');
+        localStorage.removeItem('token');
         this.zoneImpl.run(() => this.user = null);
         this.router.navigate(['/login']);
     }
