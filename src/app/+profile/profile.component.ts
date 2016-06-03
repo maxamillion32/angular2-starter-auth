@@ -8,7 +8,7 @@ import { AuthService } from './../shared/auth/auth.service';
     styleUrls: ['profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-    user: Object;
+    // user: Object;
 
     constructor(private authService: AuthService) {
         console.log('ProfileComponent constructor()');

@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 // import { Routes , ROUTER_DIRECTIVES , ROUTER_PROVIDERS, Router } from '@angular/router';
-import { RouteConfig, ROUTER_DIRECTIVES , ROUTER_PROVIDERS, Router } from '@angular/router-deprecated';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from '@angular/router-deprecated';
 import { HeaderComponent } from './shared/ui/header';
 import { FooterComponent } from './shared/ui/footer';
 import { LoginComponent } from './+login';
 import { HomeComponent } from './+home';
 import { ProfileComponent } from './+profile';
 import { AuthService } from './shared/auth/auth.service';
+import { AuthenticatedRouterOutlet } from './authenticated-router-outlet.directive';
 
 @Component({
     moduleId: module.id,
     selector: 'app',
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.css'],
-    directives: [ROUTER_DIRECTIVES, HeaderComponent, FooterComponent ],
+    directives: [AuthenticatedRouterOutlet, HeaderComponent, FooterComponent ],
     providers: [ROUTER_PROVIDERS, AuthService]
 })
 // @Routes([
@@ -23,7 +24,8 @@ import { AuthService } from './shared/auth/auth.service';
 // ])
 @RouteConfig([
     {path: '/login', name: 'Login', component: LoginComponent},
-    {path: '/', name: 'Home', component: HomeComponent},
+    {path: '/', name: 'Home', component: HomeComponent, useAsDefault: true},
+    {path: '/**',  redirectTo: ["Home"]},
     {path: '/profile', name: 'Profile', component: ProfileComponent}
 ])
 export class AppComponent {
@@ -32,12 +34,12 @@ export class AppComponent {
     // Create menu item component
 
     constructor(private router: Router, private authService: AuthService) {
-        if ( !this.authService.authenticated() ) {
+        // if ( !this.authService.authenticated() ) {
             // The user is not logged in, navigate to the login page
             // TODO: Instead of router navigate figure out a way to send the user to a URL, this is based off the existing URL
-            this.router.navigate(['Login']);
+            // this.router.navigate(['Login']);
             // this.router.navigate(['/login']);
-        }
+        // }
     }
 
 }

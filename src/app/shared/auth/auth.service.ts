@@ -15,6 +15,8 @@ export class AuthService {
 
     constructor(private router: Router, zone: NgZone) {
         this.zoneImpl = zone;
+        console.log('User authenticated: ' + this.authenticated());
+        console.log('inside authservice constructor, Token not expired: ' + tokenNotExpired());
         if ( tokenNotExpired() ) {
             this.user = JSON.parse(localStorage.getItem('profile'));
         }
@@ -41,21 +43,15 @@ export class AuthService {
             // container: 'root'
         };
 
-        this.lock.on('hidden', () => {
-            console.log("lock hidden!");
-            this.router.navigate(['/']);
-        });
-
         // TODO: Docs https://auth0.com/docs/libraries/lock
         // Show the Auth0 Lock widget
         this.lock.show(config, (err, profile, token) => {
-            console.log('inside the login callback...');
-            console.log(err);
+            console.log('inside login callback..');
             console.log(profile);
             console.log(token);
             if ( err ) {
                 // Error callback
-                alert(err);
+                // alert(err);
                 return;
             } else {
                 // Success callback
@@ -63,6 +59,8 @@ export class AuthService {
                 localStorage.setItem('profile', JSON.stringify(profile));
                 localStorage.setItem('id_token', token);
                 this.zoneImpl.run(() => this.user = profile);
+                console.log('this.user =');
+                console.log(this.user);
             }
         });
     }
@@ -70,8 +68,9 @@ export class AuthService {
     logout() {
         localStorage.removeItem('profile');
         localStorage.removeItem('id_token');
+        localStorage.removeItem('token');
         this.zoneImpl.run(() => this.user = null);
-        this.router.navigate(['/login']);
+        this.router.navigate(['Login']);
     }
 
     authenticated() {
