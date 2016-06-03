@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
+import { Router } from '@angular/router-deprecated';
 import { AuthService } from './../shared/auth/auth.service';
 
 @Component({
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         if ( this.authService.authenticated() ) {
             // The user is already logged in, send them to the home page
-            this.router.navigate(['/']);
+            this.router.navigate(['Home']);
         } else {
             this.authService.login();
             // this.router.navigate(['/login']);

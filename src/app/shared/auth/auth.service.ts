@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
+import { Router } from '@angular/router-deprecated';
 import { tokenNotExpired } from 'angular2-jwt';
 
 // Avoid name not found warnings
